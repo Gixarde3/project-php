@@ -2,14 +2,14 @@
 session_start();
 include 'connection.php';
 $valido=0;
-if (!isset($_SESSION['usuario'])){
+if (!isset($_SESSION['usuario'])){//Checa si hay un usuario activo, de lo contrario te regresará al inicio
   echo '</title>script type="text/javascript">window.location="index.php";</script>';
 }
 if(isset($_POST['contrasena'])){
   $user=$_SESSION['usuario'];
   $pass=$_POST['contrasena'];
   $con=conect();
-  $sql="UPDATE users SET pass='$pass' WHERE usuario='$user'";
+  $sql="UPDATE users SET pass='$pass' WHERE usuario='$user'";//Actualiza la contraseña
   $resultado=mysqli_query($con, $sql);
   echo '<h2>Contraseña cambiada con éxto</h2>';
 }

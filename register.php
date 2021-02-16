@@ -2,10 +2,10 @@
 session_start();
 include 'connection.php';
 $valido=0;
-if(isset($_POST['contrasena'])){
+if(isset($_POST['contrasena'])){ //Se checa si se ha pulsado el botón a través del hecho de que si contraseña está puesta
   $user=$_POST['usuario_nuevo'];
   $pass=$_POST['contrasena'];
-  $sql="SELECT * FROM users WHERE usuario='$user'";
+  $sql="SELECT * FROM users WHERE usuario='$user'";//Checa si hay una cuenta existente con ese usario
   $con=conect();
   $resultado=mysqli_query($con, $sql);
   while ($usado = mysqli_fetch_object($resultado)) {
@@ -30,7 +30,7 @@ if(isset($_POST['contrasena'])){
       }
     </style>
     <script type="text/javascript">
-    function verificar(){
+    function verificar(){//verifica si ambos campos de contraseña son iguales
       var pass=document.getElementById('pass').value;
       var pass_confirm=document.getElementById('pass_confirm').value;
       var form=document.getElementById('formulario');

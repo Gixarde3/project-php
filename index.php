@@ -5,7 +5,7 @@ $valido=0;
 if(isset($_POST['enviar'])){
   $user=$_POST['usuario'];
   $pass=$_POST['contrasena'];
-  $sql="SELECT * FROM users WHERE usuario='$user' && pass='$pass'";
+  $sql="SELECT * FROM users WHERE usuario='$user' && pass='$pass'";//Checa si la cuenta biscada conicide con los datos
   $con=conect();
   $resultado=mysqli_query($con, $sql);
   $valido=2;
@@ -13,7 +13,7 @@ if(isset($_POST['enviar'])){
    $valido=1;
   }
   if ($valido==1) {
-    $_SESSION['usuario']=$user;
+    $_SESSION['usuario']=$user;//Pone en la sesión el usuario que está en ella, para cambiar la contraseña
   }
 }
 ?>
